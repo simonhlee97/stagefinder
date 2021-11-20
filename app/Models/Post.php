@@ -12,6 +12,9 @@ class Post extends Model
     // protect all attributes (no mass assignment allowed)
     protected $guarded = [];
 
+    // (eager load by default, these relationships, for every Post query)
+    protected $with = ['category', 'author'];
+
     // All attributes except "id" allowed to be mass assigned
     // protected $guarded = ['id'];
 

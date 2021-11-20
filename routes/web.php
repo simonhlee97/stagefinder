@@ -19,17 +19,19 @@ Route::get('/venues', function () {
 });
 
 Route::get('/venues/{venue:name}', function (Venue $venue) {
-
     return view('venue', [
         'venue' => $venue
     ]);
 });
 
 
-// posts (laracasts tutorials)
+
+// LARACASTS
+// LARACASTS
+// LARACASTS
 Route::get('/posts', function () {
     return view('posts', [
-        'posts' => Post::latest()->with('category', 'author')->get()
+        'posts' => Post::latest()->get()
     ]);
 });
 
@@ -47,6 +49,8 @@ Route::get('categories/{category}', function (Category $category) {
 
 Route::get('authors/{author:username}', function (User $author) {
     return view('posts', [
+        // 'posts' => $author->posts->load(['category', 'author'])      see Post model - $with
         'posts' => $author->posts
+
     ]);
 });
